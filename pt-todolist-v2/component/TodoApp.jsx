@@ -1,9 +1,15 @@
 import React from 'react'
 
 const TodoApp = () => {
+    const [taskList, setTaskList] = useState([])
+    
+    const [inputUser, setInputUser] = useState("")
 
   return (
-    <div>TodoApp</div>
+    <>
+    <input></input>
+    <button>send task</button>
+    </>
   )
 }
 
