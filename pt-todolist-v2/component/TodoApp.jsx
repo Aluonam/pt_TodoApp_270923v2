@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import TaskList from './TaskList'
 
 const TodoApp = () => {
+
     const [taskList, setTaskList] = useState([])
     
     const [inputUser, setInputUser] = useState("")
@@ -13,10 +14,9 @@ const TodoApp = () => {
         setInputUser("")
     }
 
-   
-
   return (
     <>
+    
     <input type='text' onChange={(e)=>{setInputUser(e.target.value)}} value={inputUser}></input>
     <button onClick={()=>{handlAddTask()}}>send task</button>
     <TaskList taskList={taskList} setTaskList={setTaskList}></TaskList>

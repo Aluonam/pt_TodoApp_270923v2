@@ -1,4 +1,5 @@
 import React from 'react'
+import DeleteButton from './DeleteButton';
 
 const TaskList = ({taskList, setTaskList}) => {
 
@@ -12,15 +13,7 @@ const TaskList = ({taskList, setTaskList}) => {
       }
   }
 
-    const deleteTask = (indexDel)=>{
-        const newArray = structuredClone(taskList);
-        const deleteTask = newArray.filter((elementoActual, index)=>{
-            return(
-                index != indexDel 
-            )
-        })
-        setTaskList(deleteTask)
-    }
+   
 
 
       const showTaskList = taskList.map((actualElement, index)=>{
@@ -30,7 +23,7 @@ const TaskList = ({taskList, setTaskList}) => {
                 <li>
                     {actualElement}
                     <button onClick={()=>{checkTask(index)}}> Check </button>
-                    <button onClick={()=>{deleteTask(index)}}> Delete </button>
+                    <DeleteButton index={index} taskList={taskList} setTaskList={setTaskList}></DeleteButton>
                 </li>
                 
             </ul>
