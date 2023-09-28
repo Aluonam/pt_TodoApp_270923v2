@@ -12,11 +12,22 @@ const TodoApp = () => {
         setInputUser("")
     }
 
+    const showTaskList = taskList.map((actualElement)=>{
+        return(
+            <>
+            <ul>
+                <li>{actualElement}</li>
+            </ul>
+            </>
+        )
+    })
+
+
   return (
     <>
     <input type='text' onChange={(e)=>{setInputUser(e.target.value)}} value={inputUser}></input>
     <button onClick={()=>{handlAddTask()}}>send task</button>
-    {taskList}
+    {showTaskList}
     </>
   )
 }
