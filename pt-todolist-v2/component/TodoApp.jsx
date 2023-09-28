@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const TodoApp = () => {
     const [taskList, setTaskList] = useState([])
@@ -7,8 +7,9 @@ const TodoApp = () => {
 
   return (
     <>
-    <input></input>
-    <button>send task</button>
+    <input type='text' onChange={(e)=>{setInputUser(e.target.value)}} value={inputUser}></input>
+    <button onClick={()=>{setTaskList(inputUser)}}>send task</button>
+    {taskList}
     </>
   )
 }
