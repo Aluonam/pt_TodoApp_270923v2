@@ -5,10 +5,17 @@ const TodoApp = () => {
     
     const [inputUser, setInputUser] = useState("")
 
+    const handlAddTask = ()=>{
+        const newTaskList = structuredClone(taskList);
+        newTaskList.push(inputUser);
+        setTaskList(newTaskList);
+        setInputUser("")
+    }
+
   return (
     <>
     <input type='text' onChange={(e)=>{setInputUser(e.target.value)}} value={inputUser}></input>
-    <button onClick={()=>{setTaskList(inputUser)}}>send task</button>
+    <button onClick={()=>{handlAddTask()}}>send task</button>
     {taskList}
     </>
   )
