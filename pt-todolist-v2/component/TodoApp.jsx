@@ -12,11 +12,24 @@ const TodoApp = () => {
         setInputUser("")
     }
 
-    const showTaskList = taskList.map((actualElement)=>{
+    const checkTask = (index)=>{
+        const newTaskList = structuredClone(taskList);
+        const completedTask = newTaskList[index].includes('✅'); // devuelve True/False
+        if (!completedTask){
+            newTaskList[index] = `✅ ${newTaskList[index]}`
+            setTaskList(newTaskList)
+        }
+    }
+
+    const showTaskList = taskList.map((actualElement, index)=>{
         return(
             <>
             <ul>
-                <li>{actualElement}</li>
+                <li>
+                    {actualElement}
+                    <button onClick={()=>{checkTask(index)}}> Check </button>
+                </li>
+                
             </ul>
             </>
         )
@@ -28,6 +41,7 @@ const TodoApp = () => {
     <input type='text' onChange={(e)=>{setInputUser(e.target.value)}} value={inputUser}></input>
     <button onClick={()=>{handlAddTask()}}>send task</button>
     {showTaskList}
+
     </>
   )
 }
